@@ -3,12 +3,12 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 
 class Posts extends CI_Controller {
 
-public function __construct()
-{
-    parent::__construct();
-    $this->load->model('posts_model');
-    $this->load->library('form_validation');
-}
+    public function __construct()
+    {
+        parent::__construct();
+        $this->load->model('posts_model');
+        $this->load->library('form_validation');
+    }
 
     public function create() 
     {
@@ -46,6 +46,12 @@ public function __construct()
         }
 
         $this->load->view('posts/create');
+    }
+
+    public function view($post_id)
+    {
+        $post = $this->posts_model->get($post_id);
+        $this->load->view('posts/view', array('post' => $post));
     }
 
 }

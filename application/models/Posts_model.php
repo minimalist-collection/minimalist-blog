@@ -12,4 +12,15 @@ class Posts_model extends CI_Model {
     {
         $this->db->insert('posts', $data);
     }
+
+    public function get($post_id)
+    {
+        $result = $this->db->get_where('posts', array('post_id' => $post_id))->first_row();
+        if($result)
+        {
+            $author = $this->ion_auth->user($result->author)->row();
+            $result->author = $author;
+        }
+        return $result;
+    }
 }
