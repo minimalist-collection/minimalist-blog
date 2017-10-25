@@ -50,8 +50,14 @@ class Posts extends CI_Controller {
 
     public function view($post_id)
     {
-        $post = $this->posts_model->get($post_id);
+        $post = $this->posts_model->get_post($post_id);
         $this->load->view('posts/view', array('post' => $post));
+    }
+
+    public function all()
+    {
+        $posts = $this->posts_model->get_posts();
+        $this->load->view('posts/all', array('posts' => $posts));
     }
 
 }
