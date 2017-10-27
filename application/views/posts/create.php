@@ -7,7 +7,7 @@
     <?php echo form_error('title'); ?>
 
     <label>Post Content</label><br>
-    <textarea name="content"><?php echo set_value('content') ?></textarea><br>
+    <textarea name="content" class="tinymce"><?php echo set_value('content') ?></textarea><br>
     <?php echo form_error('content'); ?>
 
     <input type="submit" value="Post">

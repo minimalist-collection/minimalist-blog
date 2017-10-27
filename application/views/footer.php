@@ -7,6 +7,21 @@
             </div>
         </div>
     </div>
+    <script src="<?php echo base_url('js/tinymce/tinymce.min.js') ?>"></script>
+    <script>
+        tinymce.init({
+            selector: '.tinymce',
+            plugins : 'link image lists',
+            toolbar: 'undo redo | styleselect | bold italic underline strikethrough | link image | bullist numlist',
+            menubar: false,
+            statusbar: false,
+            style_formats: [
+                {title: 'Header', format: 'h2'},
+                {title: 'Subheading', format: 'h3'},
+                {title: 'Minor Heading', format: 'h4'}
+            ]
+        });
+    </script>
 </body>
 </html>
 </html>
