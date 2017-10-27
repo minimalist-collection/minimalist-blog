@@ -1,3 +1,6 @@
+<?php $this->load->view('header.php') ?>
+
+<h1>Create Post</h1>
 <?php echo form_open() ?>
     <label>Post Title</label><br>
     <input type="text" name="title" value="<?php echo set_value('title') ?>"><br>
@@ -9,3 +12,5 @@
 
     <input type="submit" value="Post">
 <?php echo form_close() ?>
+
+<?php $this->load->view('footer.php') ?>

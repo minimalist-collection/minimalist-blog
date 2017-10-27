@@ -1,0 +1,240 @@
+
+@import url('https://fonts.googleapis.com/css?family=Libre+Baskerville');
+@import url('https://fonts.googleapis.com/css?family=Montserrat:400,400i');
+@import url('https://fonts.googleapis.com/css?family=Hind');
+
+* {
+    font-family: 'Hind', Helvetica, sans-serif;
+    color: #2C343B;
+    line-height: 1.5;
+    font-size: 18px;
+    box-sizing: border-box;
+}
+
+body {
+    padding: 90px;
+}
+
+h1 {
+    font-size: 3em;
+    font-family: 'Libre Baskerville', Helvetica, serif;
+    margin: 30px 0;
+    font-weight: bold;
+}
+
+h1 + .sub {
+    font-size: 2em;
+    font-family: Montserrat, Arial, sans-serif;
+    opacity: 0.5;
+    font-style: italic;
+    margin-top: 30px;
+    margin-bottom: 60px;
+}
+
+h2 {
+    font-size: 1.8em;
+    font-family: Montserrat, Arial, sans-serif;
+    font-weight: normal;
+    color: #52616D;
+    margin-bottom: 30px;
+    margin-top: 60px;
+}
+
+h3 {
+    font-size: 1.5em;
+    font-family: Montserrat, Arial, sans-serif;
+    font-weight: normal;
+    color: #52616D;
+}
+
+h4 {
+    font-size: 1em;
+    font-family: Montserrat, Arial, sans-serif;
+    font-weight: normal;
+    color: #52616D;
+}
+
+a {
+    color: #08C;
+    text-decoration: none;
+}
+
+p {
+    margin: 15px 0;
+}
+
+p > a:hover,
+li > a:hover {
+    text-decoration: underline;
+}
+
+ul {
+    margin: 15px 0;
+}
+
+hr {
+    margin: 60px 0;
+}
+
+.square {
+    width: 100%;
+    height: 90px;
+    border: 1px solid #52616D;
+    margin-bottom: 30px;
+    border-radius: 2px;
+}
+
+.square.white { background-color: #FFFFFF; }
+.square.beige { background-color: #E5E1D1; }
+.square.blue { background-color: #08C; }
+.square.red { background-color: #C44741; }
+.square.grey { background-color: #52616D; }
+.square.black { background-color: #2C343B; }
+
+nav ul {
+    padding: 0;
+}
+
+nav li {
+    text-indent: 0;
+    line-height: 2em;
+    list-style-type: none;
+}
+
+button, 
+input[type=submit] {
+    font-family: Montserrat, Arial, sans-serif;
+    background: #FFF;
+    color: #2C343B;
+    border: 1px solid #2C343B;
+    border-radius: 2px;
+    padding: 15px 30px;
+    margin: 15px 0;
+    text-transform: uppercase;
+    font-size: 14px;
+    letter-spacing: 1px;
+}
+
+button:hover, 
+input[type=submit]:hover {
+    text-decoration: underline;
+}
+
+button.link {
+    border: 1px solid #FFF;
+}
+
+button.disabled {
+    opacity: 0.5;
+}
+
+button.disabled:hover {
+    text-decoration: none;
+}
+
+.button-group {
+    display: table;    
+}
+
+.button-group button {
+    display: table-cell;
+    margin-right: 0;
+    border-radius: 0;
+    border-left: 0;
+}
+
+.button-group button:first-child {
+    border-left: 1px solid #2C343B;
+    border-top-left-radius: 2px;
+    border-bottom-left-radius: 2px;
+}
+
+.button-group button:last-child {
+    border-top-right-radius: 2px;
+    border-bottom-right-radius: 2px;
+}
+
+input[type=text],
+input[type=password],
+input[type=email],
+select,
+textarea {
+    border: 1px solid #2C343B;
+    border-radius: 2px;
+    padding: 7.5px 15px;
+    width: 100%;
+    margin-bottom: 15px;
+}
+
+form td {
+    vertical-align: top;
+    padding-bottom: 15px;
+}
+
+td > label {
+    margin-right: 30px;
+}
+
+label {
+    line-height: 44px;
+}
+
+input[type=checkbox],
+input[type=radio] {
+    margin-right: 7.5px;
+}
+
+form td:nth-child(2) {
+    width: 450px;
+}
+
+.alert {
+    border: 1px double #52616D;
+    background: #52616D;
+    color: #FFF;
+    border-radius: 2px;
+    padding: 7.5px 15px;
+    width: 100%;
+    margin-bottom: 15px;
+}
+
+.alert-error {
+    border-color: #C44741;
+    background: #C44741;
+    color: #FFF;
+}
+
+.alert-success {
+    border-color: #41C472;
+    background: #41C472;
+    color: #FFF;
+}
+
+.alert .close {
+    color: inherit;
+    float: right;
+    font-size: 28px;
+    line-height: 32px;
+    cursor: pointer;
+}
+
+.text-muted {
+    opacity: 0.5;
+}
+
+.footer {
+    margin-top: 60px;
+    text-align: center;
+    opacity: 0.5;
+}
+
+.main > div {
+    min-height: 50%;
+}
+
+.site-title {
+    font-size: 2em;
+    font-family: 'Libre Baskerville', Helvetica, serif;
+    margin: 30px 0;
+    font-weight: bold;
+}

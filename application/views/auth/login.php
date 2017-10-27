@@ -1,28 +1,20 @@
-<h1><?php echo lang('login_heading');?></h1>
-<p><?php echo lang('login_subheading');?></p>
+<?php $this->load->view('header.php') ?>
 
-<div id="infoMessage"><?php echo $message;?></div>
+<h1>Login</h1>
 
-<?php echo form_open("auth/login");?>
+<div id="infoMessage"><?php echo $message ?></div>
 
-  <p>
-    <?php echo lang('login_identity_label', 'identity');?>
-    <?php echo form_input($identity);?>
-  </p>
+<?php echo form_open("auth/login") ?>
+<?php echo lang('login_identity_label', 'identity') ?>
+<?php echo form_input($identity) ?>
+<?php echo lang('login_password_label', 'password') ?>
+<?php echo form_input($password) ?>
+<?php echo lang('login_remember_label', 'remember') ?>
+<?php echo form_checkbox('remember', '1', FALSE, 'id="remember"') ?>
+<br>
+<?php echo form_submit('submit', lang('login_submit_btn')) ?>
+<?php echo form_close() ?>
 
-  <p>
-    <?php echo lang('login_password_label', 'password');?>
-    <?php echo form_input($password);?>
-  </p>
+<a href="forgot_password"><?php echo lang('login_forgot_password') ?></a>
 
-  <p>
-    <?php echo lang('login_remember_label', 'remember');?>
-    <?php echo form_checkbox('remember', '1', FALSE, 'id="remember"');?>
-  </p>
-
-
-  <p><?php echo form_submit('submit', lang('login_submit_btn'));?></p>
-
-<?php echo form_close();?>
-
-<p><a href="forgot_password"><?php echo lang('login_forgot_password');?></a></p>
+<?php $this->load->view('footer.php') ?>

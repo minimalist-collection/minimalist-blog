@@ -1,0 +1,21 @@
+.posts-list {
+    margin: 0;
+    padding: 0;
+}
+
+.posts-list li {
+    list-style-type: none;
+}
+
+.post-title > a {
+    color: inherit;
+    font-weight: bold;
+    font-family: 'Libre Baskerville', Helvetica, serif;
+    display: block;
+    margin-top: 45px;
+    margin-bottom: 15px;
+}
+
+.post-info {
+    opacity: 0.7;
+}
