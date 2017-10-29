@@ -29,3 +29,30 @@
 .post-content {
     margin-bottom: 1em;
 }
+
+/*COMMENT*/
+
+.comment {
+    border-bottom: 1px solid rgba(204, 204, 204, 0.55);
+    padding: 45px 30px;
+}
+
+.comment:last-child {
+    border-bottom: 1px solid rgba(204, 204, 204, 0.55);
+}
+
+.comment .name {
+    font-family: 'Libre Baskerville', Helvetica, serif;
+    font-size: 1em;
+    font-weight: bold;
+    margin-bottom: 15px;
+}
+
+.comment .content {
+    margin-bottom: 30px;
+}
+
+.comment .date {
+    opacity: 0.5;
+    font-size: 14px;
+}

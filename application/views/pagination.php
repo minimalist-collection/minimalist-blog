@@ -1,6 +1,6 @@
 <?php 
 	$pages = ceil($pagination['total'] / $pagination['limit']);
-	$page = $this->input->get('page');
+	$page = $this->input->get('page') ? $this->input->get('page') : 1;
 ?>
 <?php if($pagination['total'] > $pagination['limit']): ?>
 <nav aria-label="Pagination">

@@ -224,6 +224,7 @@ form td:nth-child(2) {
 
 .text-muted {
     opacity: 0.5;
+    font-size: inherit;
 }
 
 .footer {
@@ -254,7 +255,9 @@ h1.site-title a {
     margin-bottom: 15px;
 }
 
-.has-error input {
+.has-error input,
+.has-error textarea,
+.has-error select {
     border-color: #C44741;
 }
 
@@ -327,4 +330,8 @@ ul.pagination {
     color: rgba(44, 52, 59, 0.5);
     text-decoration: none;
     cursor: default;
+}
+
+.g-recaptcha {
+    margin-bottom: 10px;
 }

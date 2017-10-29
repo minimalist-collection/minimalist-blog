@@ -20,4 +20,8 @@
     </a>
 <?php endif ?>
 
+<a name="comments"></a>
+<h2>Add Comment</h2>
+<?php $this->load->view('comments/comments', array('post_id' => $post->post_id)) ?>
+
 <?php $this->load->view('footer.php') ?>
