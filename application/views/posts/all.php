@@ -1,6 +1,13 @@
 <?php $this->load->view('header.php') ?>
 
 <h1>Posts</h1>
+
+<?php if($this->ion_auth->logged_in()): ?>
+	<a href="<?php echo base_url("posts/create") ?>">
+	    <button type="button">New Post</button>
+	</a>
+<?php endif ?>
+
 <ul class="posts-list">
     <?php foreach($posts as $post): ?>
     <li>
@@ -9,5 +16,7 @@
     </li>
     <?php endforeach ?>
 </ul>
+
+<?php $this->load->view('pagination') ?>
 
 <?php $this->load->view('footer.php') ?>

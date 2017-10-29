@@ -93,8 +93,10 @@ class Posts extends CI_Controller {
 
     public function all()
     {
+        $this->load->helper('pagination');
         $posts = $this->posts_model->get_posts();
-        $this->load->view('posts/all', array('posts' => $posts));
+        $pagination = paginate($posts);
+        $this->load->view('posts/all', array('posts' => $posts, 'pagination' => $pagination));
     }
 
 }
