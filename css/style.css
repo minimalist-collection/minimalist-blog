@@ -238,3 +238,83 @@ form td:nth-child(2) {
     margin: 30px 0;
     font-weight: bold;
 }
+
+.form-error {
+    color: #C44741;
+    margin-bottom: 15px;
+}
+
+.has-error input {
+    border-color: #C44741;
+}
+
+/*TINYMCE*/
+
+form .mce-panel {
+    border: 0 solid #2C343B;
+    box-shadow: none;
+}
+
+form .mce-content-body {
+    font-family: 'Hind', Helvetica, sans-serif;
+    color: #2C343B;
+    line-height: 1.5;
+    font-size: 18px;
+}
+
+.has-error .mce-panel {
+    border: 0 solid #C44741;
+}
+
+
+.mce-content-body {
+    padding: 7.5px 15px;
+    margin: 0;
+}
+
+
+/*PAGINATION*/
+
+.pagination {
+    margin-top: 60px;
+}
+
+.pagination .page-link {
+    color: #2C343B;
+    display: inline-block;
+    border: 1px solid #2C343B;
+    min-height: 3em;
+    min-width: 3em;
+    text-align: center;
+    line-height: 3em;
+    border-right: none;
+}
+
+.pagination .page-item.active {
+    font-weight: bold;
+}
+
+.pagination .page-item:first-child .page-link {
+    padding: 0 22.5px;
+}
+
+.pagination .page-item:last-child .page-link {
+    border: 1px solid #2C343B;
+    padding: 0 22.5px;
+}
+
+ul.pagination {
+    display: table;
+}
+
+.pagination .page-item {
+    display: table-cell;
+}
+
+.pagination .page-item.disabled a,
+.pagination .page-item.disabled a span,
+.pagination .page-item.disabled a:hover {
+    color: rgba(44, 52, 59, 0.5);
+    text-decoration: none;
+    cursor: default;
+}

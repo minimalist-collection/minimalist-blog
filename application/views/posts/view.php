@@ -14,4 +14,10 @@
     <p>The post you were looking for could not be found.</p>
 <?php endif ?>
 
+<?php if($this->ion_auth->logged_in()): ?>
+    <a href="<?php echo base_url("posts/edit/{$post->post_id}") ?>">
+        <button type="button">Edit</button>
+    </a>
+<?php endif ?>
+
 <?php $this->load->view('footer.php') ?>

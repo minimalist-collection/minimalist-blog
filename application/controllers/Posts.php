@@ -17,7 +17,6 @@ class Posts extends CI_Controller {
             redirect('auth/login');
         }
 
-
         if($this->input->method() == 'post')
         {
             $this->form_validation->set_rules('title', 'Title', 'required');
@@ -43,9 +42,47 @@ class Posts extends CI_Controller {
                 // Create the post
                 $this->posts_model->create($data);
             }
+            else
+            {
+                $this->session->set_flashdata('error', 'There are errors in the post.');
+            }
         }
 
         $this->load->view('posts/create');
+    }
+
+    public function edit($post_id)
+    {
+        if (!$this->ion_auth->logged_in())
+        {
+            redirect('auth/login');
+        }
+
+        $post = $this->posts_model->get_post($post_id);
+
+        if($this->input->method() == 'post')
+        {
+            $this->form_validation->set_rules('title', 'Title', 'required');
+            $this->form_validation->set_rules('content', 'Content', 'required');
+
+            if($this->form_validation->run() !== FALSE)
+            {
+                $data = array(
+                    'title'     => $this->input->post('title'),
+                    'content'   => $this->input->post('content')
+                );
+
+                // Update the post
+                $this->posts_model->update($post_id, $data);
+                redirect("posts/view/$post_id");
+            }
+            else
+            {
+                $this->session->set_flashdata('error', 'There are errors in the post.');
+            }
+        }
+
+        $this->load->view('posts/edit', array('post' => $post));
     }
 
     public function view($post_id)

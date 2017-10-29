@@ -12,7 +12,7 @@
     color: inherit;
     font-weight: bold;
     font-family: 'Libre Baskerville', Helvetica, serif;
-    display: block;
+    display: inline-block;
     margin-top: 45px;
     margin-bottom: 15px;
 }

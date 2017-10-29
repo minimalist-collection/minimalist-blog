@@ -11,6 +11,7 @@
     <script>
         tinymce.init({
             selector: '.tinymce',
+            height : '450',
             plugins : 'link image lists',
             toolbar: 'undo redo | styleselect | bold italic underline strikethrough | link image | bullist numlist',
             menubar: false,
@@ -19,7 +20,8 @@
                 {title: 'Header', format: 'h2'},
                 {title: 'Subheading', format: 'h3'},
                 {title: 'Minor Heading', format: 'h4'}
-            ]
+            ],
+            content_css : "<?php echo base_url('css/style.css') ?>"
         });
     </script>
 </body>
