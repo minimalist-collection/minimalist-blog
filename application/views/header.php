@@ -10,7 +10,11 @@
     <div class="container">
         <div class="header row">
             <div class="col-md-12">
-                <div class="site-title">minimalist-blog</div>
+                <?php if(!$this->uri->segment(1)): ?>
+                    <h1 class="site-title"><a href="<?php echo base_url() ?>">minimalist-blog</a></h1>
+                <?php else: ?>
+                    <div class="site-title"><a href="<?php echo base_url() ?>">minimalist-blog</a></div>
+                <?php endif ?>
             </div>
         </div>
         <div class="main row">

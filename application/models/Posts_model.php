@@ -33,6 +33,7 @@ class Posts_model extends CI_Model {
     public function get_posts()
     {
         $this->db->order_by('publish_date', 'DESC');
+        $this->db->order_by('post_id', 'DESC');
         $results = $this->db->get('posts')->result();
         foreach ($results as $key => $result) {
             $author = $this->ion_auth->user($result->author)->row();
