@@ -36,7 +36,8 @@ class Posts extends CI_Controller {
                 'title'     => $this->input->post('title'),
                 'content'   => $this->input->post('content'),
                 'author'    => $author,
-                'publish_date' => $publish_date
+                'publish_date' => $publish_date,
+                'tags'      => explode( ',', $this->input->post('tags'))
             );
 
             if($this->form_validation->run() !== FALSE)
@@ -71,7 +72,8 @@ class Posts extends CI_Controller {
             {
                 $data = array(
                     'title'     => $this->input->post('title'),
-                    'content'   => $this->input->post('content')
+                    'content'   => $this->input->post('content'),
+                    'tags'      => explode( ',', $this->input->post('tags'))
                 );
 
                 // Update the post
@@ -84,6 +86,8 @@ class Posts extends CI_Controller {
             }
         }
 
+        $post->tags = str_replace('-', ' ', $post->tags);
+        $post->tags = str_replace(',', ', ', $post->tags);
         $this->load->view('posts/edit', array('post' => $post));
     }
 

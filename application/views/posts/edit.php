@@ -21,6 +21,12 @@
         <?php echo form_error('content'); ?>
     </div>
 
+    <div class="<?php if(form_error('tags')) echo 'has-error' ?>">
+        <label>Post Tags</label><br>
+        <input type="text" name="tags" value="<?php echo set_value('tags') ? set_value('tags') : $post->tags ?>"><br>
+        <?php echo form_error('tags'); ?>
+    </div>
+
     <input type="submit" value="Post">
     <a href="<?php echo base_url("posts/view/{$post->post_id}") ?>">
         <button type="button" class="link">Cancel</button>
