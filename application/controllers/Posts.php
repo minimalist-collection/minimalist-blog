@@ -106,4 +106,15 @@ class Posts extends CI_Controller {
         $this->load->view('posts/all', array('posts' => $posts, 'pagination' => $pagination));
     }
 
+    public function tagged($tag)
+    {
+        $this->load->helper('pagination');
+        $this->load->helper('html');
+        $this->load->helper('post');
+
+        $posts = $this->posts_model->get_by_tag($tag);
+        $pagination = paginate($posts);
+        $this->load->view('posts/tagged', array('posts' => $posts, 'pagination' => $pagination, 'tag' => $tag));
+    }
+
 }

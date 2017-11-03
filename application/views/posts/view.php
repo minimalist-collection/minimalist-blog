@@ -4,7 +4,7 @@
     <h1><?php echo $post->title ?></h1>
     <div class="post-info">
         <span class="author">Posted by <?php echo $post->author->first_name . ' ' . $post->author->last_name ?></span> 
-        <span class="date">on <?php echo date('M d Y H:iA', strtotime($post->publish_date)) ?></span>
+        <span class="date">on <?php echo date('j F Y \a\t H:ia', strtotime($post->publish_date)) ?></span>
     </div>
     <div class="post-content">
         <?php echo $post->content ?>
@@ -12,6 +12,15 @@
 <?php else: ?>
     <h1>Post not found</h1>
     <p>The post you were looking for could not be found.</p>
+<?php endif ?>
+
+<?php if($tags = array_filter(explode(',', $post->tags))): ?>
+    <div class="post-tags">
+        Tagged 
+        <?php foreach($tags as $tag): ?>
+            <?php echo anchor( base_url("posts/tagged/$tag"), str_replace('-', ' ', $tag)) ?><?php if(end($tags) !== $tag) echo ', ' ?>
+        <?php endforeach ?>
+    </div>
 <?php endif ?>
 
 <?php if($this->ion_auth->logged_in()): ?>
