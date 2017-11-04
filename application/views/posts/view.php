@@ -24,9 +24,12 @@
         </a>
     <?php endif ?>
 
-    <a name="comments"></a>
-    <h2>Add Comment</h2>
-    <?php $this->load->view('comments/comments', array('post_id' => $post->post_id)) ?>
+
+    <?php if($this->settings_model->get('comments') == 'Y'): ?>
+        <a name="comments"></a>
+        <h2>Add Comment</h2>
+        <?php $this->load->view('comments/comments', array('post_id' => $post->post_id)) ?>
+    <?php endif ?>
 <?php else: ?>
     <h1>Post not found</h1>
     <p>The post you were looking for could not be found.</p>
