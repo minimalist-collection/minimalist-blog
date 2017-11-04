@@ -28,6 +28,7 @@
     </div>
 
     <input type="submit" value="Post">
+    <input type="submit" name="draft" value="Save as Draft">
     <a href="<?php echo base_url("posts/view/{$post->post_id}") ?>">
         <button type="button" class="link">Cancel</button>
     </a>

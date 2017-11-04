@@ -12,6 +12,18 @@ class Posts extends CI_Controller {
         $this->load->library('recaptcha');
     }
 
+    public function drafts()
+    {
+        if (!$this->ion_auth->logged_in())
+        {
+            redirect('auth/login');
+        }
+        $this->load->helper('pagination');
+        $posts = $this->posts_model->get_drafts();
+        $pagination = paginate($posts);
+        $this->load->view('posts/drafts', array('posts' => $posts, 'pagination' => $pagination));
+    }
+
     public function create() 
     {
         if (!$this->ion_auth->logged_in())
@@ -28,8 +40,15 @@ class Posts extends CI_Controller {
             $author = $this->ion_auth->user()->row();
             $author = $author->id;
 
-            // Get current date time
-            $publish_date = date("Y-m-d H:i:s");
+            // Set publish date
+            if( $this->input->post('draft') )
+            {
+                $publish_date = null;
+            }
+            else
+            {
+                $publish_date = date("Y-m-d H:i:s");
+            }            
 
             // Put it all together
             $data = array(
@@ -76,6 +95,15 @@ class Posts extends CI_Controller {
                     'tags'      => explode( ',', $this->input->post('tags'))
                 );
 
+                if( $this->input->post('draft') )
+                {
+                    $data['publish_date'] = null;
+                }
+                else
+                {
+                    $data['publish_date'] = $post->publish_date ? $post->publish_date : date("Y-m-d H:i:s");
+                }
+
                 // Update the post
                 $this->posts_model->update($post_id, $data);
                 redirect("posts/view/$post_id");
@@ -94,7 +122,16 @@ class Posts extends CI_Controller {
     public function view($post_id)
     {
         $post = $this->posts_model->get_post($post_id);
-        $comments = $this->comments_model->get_comments($post_id);
+        if(!$post->publish_date && !$this->ion_auth->logged_in())
+        {
+            $post = null;
+            $comments = null;
+        }
+        else
+        {
+            $comments = $this->comments_model->get_comments($post_id);
+        }
+        
         $this->load->view('posts/view', array('post' => $post, 'comments' => $comments));
     }
 

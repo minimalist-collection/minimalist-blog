@@ -9,28 +9,29 @@
     <div class="post-content">
         <?php echo $post->content ?>
     </div>
+    <?php if($tags = array_filter(explode(',', $post->tags))): ?>
+        <div class="post-tags">
+            Tagged 
+            <?php foreach($tags as $tag): ?>
+                <?php echo anchor( base_url("posts/tagged/$tag"), str_replace('-', ' ', $tag)) ?><?php if(end($tags) !== $tag) echo ', ' ?>
+            <?php endforeach ?>
+        </div>
+    <?php endif ?>
+
+    <?php if($this->ion_auth->logged_in()): ?>
+        <a href="<?php echo base_url("posts/edit/{$post->post_id}") ?>">
+            <button type="button">Edit</button>
+        </a>
+    <?php endif ?>
+
+    <a name="comments"></a>
+    <h2>Add Comment</h2>
+    <?php $this->load->view('comments/comments', array('post_id' => $post->post_id)) ?>
 <?php else: ?>
     <h1>Post not found</h1>
     <p>The post you were looking for could not be found.</p>
 <?php endif ?>
 
-<?php if($tags = array_filter(explode(',', $post->tags))): ?>
-    <div class="post-tags">
-        Tagged 
-        <?php foreach($tags as $tag): ?>
-            <?php echo anchor( base_url("posts/tagged/$tag"), str_replace('-', ' ', $tag)) ?><?php if(end($tags) !== $tag) echo ', ' ?>
-        <?php endforeach ?>
-    </div>
-<?php endif ?>
 
-<?php if($this->ion_auth->logged_in()): ?>
-    <a href="<?php echo base_url("posts/edit/{$post->post_id}") ?>">
-        <button type="button">Edit</button>
-    </a>
-<?php endif ?>
-
-<a name="comments"></a>
-<h2>Add Comment</h2>
-<?php $this->load->view('comments/comments', array('post_id' => $post->post_id)) ?>
 
 <?php $this->load->view('footer.php') ?>
