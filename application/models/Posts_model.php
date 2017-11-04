@@ -36,6 +36,12 @@ class Posts_model extends CI_Model {
         }
     }
 
+    public function delete($post_id)
+    {
+        $this->db->where('post_id', $post_id);
+        $this->db->delete('posts');
+    }
+
     public function update($post_id, $data)
     {
         $tags = $data['tags'];

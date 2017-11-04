@@ -29,6 +29,7 @@
 
     <input type="submit" value="Post">
     <input type="submit" name="draft" value="Save as Draft">
+    <input type="submit" name="delete" onclick="return confirm('Are you sure you want to delete this post?');" value="Delete">
     <a href="<?php echo base_url("posts/view/{$post->post_id}") ?>">
         <button type="button" class="link">Cancel</button>
     </a>

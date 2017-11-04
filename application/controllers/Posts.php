@@ -84,6 +84,12 @@ class Posts extends CI_Controller {
 
         if($this->input->method() == 'post')
         {
+            if( $this->input->post('delete') )
+            {
+                $this->posts_model->delete($post_id);
+                redirect('posts/all');
+            }
+
             $this->form_validation->set_rules('title', 'Title', 'required');
             $this->form_validation->set_rules('content', 'Content', 'required');
 
