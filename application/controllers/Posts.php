@@ -12,18 +12,6 @@ class Posts extends CI_Controller {
         $this->load->library('recaptcha');
     }
 
-    public function drafts()
-    {
-        if (!$this->ion_auth->logged_in())
-        {
-            redirect('auth/login');
-        }
-        $this->load->helper('pagination');
-        $posts = $this->posts_model->get_drafts();
-        $pagination = paginate($posts);
-        $this->load->view('posts/drafts', array('posts' => $posts, 'pagination' => $pagination));
-    }
-
     public function create() 
     {
         if (!$this->ion_auth->logged_in())
@@ -71,6 +59,15 @@ class Posts extends CI_Controller {
         }
 
         $this->load->view('posts/create');
+    }
+
+    public function delete($post_id)
+    {
+        if($this->input->method() == 'post')
+        {
+            $this->posts_model->delete($post_id);
+            redirect('posts/all');
+        }
     }
 
     public function edit($post_id)
@@ -143,10 +140,39 @@ class Posts extends CI_Controller {
 
     public function all()
     {
+        if (!$this->ion_auth->logged_in())
+        {
+            redirect('auth/login');
+        }
         $this->load->helper('pagination');
-        $posts = $this->posts_model->get_posts();
+        $posts = $this->posts_model->get_posts(true);
         $pagination = paginate($posts);
         $this->load->view('posts/all', array('posts' => $posts, 'pagination' => $pagination));
+    }
+
+    public function archives()
+    {
+        $posts = $this->posts_model->get_posts_archive();
+
+        $archives = array();
+
+        for($i = 0; $i <= count($posts) - 1; $i++)
+        {
+            $year = date('Y', strtotime($posts[$i]->publish_date));
+            if(!isset($archives[$year]))
+            {
+                $archives[$year] = array();
+            }
+            $month = date('F', strtotime($posts[$i]->publish_date));
+            if(!isset($archives[$year][$month]))
+            {
+                $archives[$year][$month] = array();
+            }
+            $archives[$year][$month][] = $posts[$i];
+
+        }
+
+        $this->load->view('posts/archives', array('archives' => $archives));
     }
 
     public function tagged($tag)

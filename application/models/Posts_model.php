@@ -65,14 +65,20 @@ class Posts_model extends CI_Model {
         return $result;
     }
 
-    public function get_posts()
+    public function get_posts($drafts = false)
     {
         $this->db->select('posts.*, GROUP_CONCAT(tags.label) AS tags');
-        $this->db->order_by('publish_date', 'DESC');
-        $this->db->order_by('post_id', 'DESC');
         $this->db->group_by('post_id');
         $this->db->join('tags', 'posts.post_id = tags.post_id', 'left');
-        $this->db->where('posts.publish_date IS NOT NULL');
+        if(!$drafts)
+        {
+            $this->db->where('posts.publish_date IS NOT NULL');
+        }
+        else
+        {
+            $this->db->order_by('publish_date', 'DESC');
+        }
+        $this->db->order_by('post_id', 'DESC');
         $results = $this->db->get('posts')->result();
         foreach ($results as $key => $result) {
             $author = $this->ion_auth->user($result->author)->row();
@@ -81,18 +87,12 @@ class Posts_model extends CI_Model {
         return $results;
     }
 
-    public function get_drafts()
+    public function get_posts_archive()
     {
-        $this->load->helper('html');
-        $this->load->helper('post');
+        $this->db->select('posts.post_id, posts.title, posts.publish_date');
+        $this->db->where('posts.publish_date IS NOT NULL');
         $this->db->order_by('publish_date', 'DESC');
-        $this->db->order_by('post_id', 'DESC');
-        $this->db->where('posts.publish_date IS NULL');
         $results = $this->db->get('posts')->result();
-        foreach ($results as $key => $result) {
-            $author = $this->ion_auth->user($result->author)->row();
-            $results[$key]->author = $author;
-        }
         return $results;
     }
 
