@@ -8,6 +8,11 @@ class Settings_model extends CI_Model {
         $this->load->database();
     }
 
+    public function install_settings($data)
+    {
+        $this->db->insert('settings', $data);
+    }
+
     public function update($data)
     {
         $this->db->where('setting_id', 1);
@@ -17,6 +22,10 @@ class Settings_model extends CI_Model {
     public function get($key)
     {
         $result = $this->db->get('settings')->first_row();
+        if(!$result)
+        {
+            redirect('install');
+        }
         return $result->{$key};
     }
 

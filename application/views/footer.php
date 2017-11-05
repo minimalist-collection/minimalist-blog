@@ -3,7 +3,7 @@
         </div>
         <div class="footer row">
             <div class="col-md-12">
-                Copyright © <?php echo date("Y") ?> minimalist-blog
+                Copyright © <?php echo date("Y") ?> <?php echo $this->settings_model->get('title') ?>
             </div>
         </div>
     </div>
