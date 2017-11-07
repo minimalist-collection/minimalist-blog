@@ -2,7 +2,8 @@
 <h1>Edit Page</h1>
 
 <?php if($this->input->method() == 'post' && $this->session->flashdata('error')): ?>
-    <div class="alert alert-error" role="alert">
+    <div class="alert alert-danger alert-dismissable">
+        <button type="button" class="close fa-times fa"></button>
         <?php echo $this->session->flashdata('error') ?>
     </div>
 <?php endif ?>
@@ -11,13 +12,13 @@
 
     <div class="<?php if(form_error('title')) echo 'has-error' ?>">
         <label>Blog Title</label><br>
-        <input type="text" name="title" value="<?php echo set_value('title') ? set_value('title') : $page->title ?>"><br>
+        <input type="text" class="form-control" name="title" value="<?php echo set_value('title') ? set_value('title') : $page->title ?>">
         <?php echo form_error('title'); ?>
     </div>
 
     <div class="<?php if(form_error('content')) echo 'has-error' ?>">
         <label>Blog Content</label><br>
-        <textarea name="content" class="tinymce <?php echo form_error('title') ? 'input-error' : '' ?>"><?php echo set_value('content') ? set_value('content') : $page->content ?></textarea><br>
+        <textarea  name="content" class="tinymce <?php echo form_error('title') ? 'input-error' : '' ?>"><?php echo set_value('content') ? set_value('content') : $page->content ?></textarea>
         <?php echo form_error('content'); ?>
     </div>
 
@@ -43,10 +44,10 @@
             <?php echo form_error('sidebar_place'); ?>
         </div>
     <?php endif ?>
-    <input type="submit" value="Save">
-    <input type="submit" name="delete" onclick="return confirm('Are you sure you want to delete this page?');" value="Delete">
+    <input type="submit" class="btn btn-primary" value="Save">
+    <input type="submit" class="btn btn-danger" name="delete" onclick="return confirm('Are you sure you want to delete this page?');" value="Delete">
     <a href="<?php echo base_url("pages/all") ?>">
-        <button type="button" class="link">Cancel</button>
+        <button type="button" class="btn btn-default">Cancel</button>
     </a>
 <?php echo form_close() ?>
 

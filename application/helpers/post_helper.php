@@ -16,9 +16,9 @@ if ( ! function_exists('preview'))
 
         $truncated_content = substr($content, 0, $last_word_pos);
 
-        $preview = close_tags($truncated_content);
+        $preview = close_tags($truncated_content . ' ...');
 
-        return $preview . ' ...';
+        return $preview;
 	}
 }
 

@@ -3,8 +3,8 @@
 <h1>Search <?php if($keywords) echo 'for "' . $keywords . '"' ?></h1>
 
 <form method="post" action="<?php echo base_url('posts/search') ?>">
-    <input type="text" name="search" value="<?php echo set_value('search') ?>">
-    <input type="submit" value="Search">
+    <input type="text" class="form-control" name="search" value="<?php echo set_value('search') ?>">
+    <input type="submit" class="btn btn-primary" value="Search">
 </form>
 
 <div><?php echo count($posts) ?> results</div>

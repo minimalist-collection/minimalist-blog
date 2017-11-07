@@ -23,7 +23,7 @@
                 <td><?php echo $page->sidebar ?></td>
                 <td>
                     <form method="page" action="<?php echo base_url("pages/delete/{$page->page_id}") ?>" onsubmit="return confirm('Are you sure you want to delete this page?')">
-                        <a href="<?php echo base_url("pages/edit/{$page->page_id}") ?>"><button type="button">Edit</button></a>
+                        <a href="<?php echo base_url("pages/edit/{$page->page_id}") ?>"><button type="button" class="btn btn-default">Edit</button></a>
                         <button>Delete</button>
                     </form>
                 </td>

@@ -25,7 +25,7 @@
                 <td><?php echo $post->publish_date ? date('M d Y \a\t H:iA', strtotime($post->publish_date)) : '' ?></td>
                 <td>
                     <form method="post" action="<?php echo base_url("posts/delete/{$post->post_id}") ?>" onclick="return confirm('Are you sure you want to delete this post?')">
-                        <a href="<?php echo base_url("posts/edit/{$post->post_id}") ?>"><button type="button">Edit</button></a>
+                        <a href="<?php echo base_url("posts/edit/{$post->post_id}") ?>"><button type="button" class="btn btn-default">Edit</button></a>
                         <button>Delete</button>
                     </form>
                 </td>
