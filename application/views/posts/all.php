@@ -3,9 +3,9 @@
 <h1>All Posts</h1>
 
 <?php if($this->ion_auth->logged_in()): ?>
-	<a href="<?php echo base_url("posts/create") ?>">
-	    <button type="button">New Post</button>
-	</a>
+    <a href="<?php echo base_url("posts/create") ?>">
+        <button type="button">New Post</button>
+    </a>
 <?php endif ?>
 
 <table>

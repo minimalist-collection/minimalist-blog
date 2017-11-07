@@ -1,6 +1,17 @@
 
             </div>
         </div>
+
+        <div class="sidebar">
+            <p><?php echo $this->settings_model->get('description') ?></p>
+            <?php if($pages = $this->pages_model->get_sidebar_pages()): ?>
+            <ul>
+                <?php foreach($pages as $page): ?>
+                    <li><a href="<?php echo base_url("page/view/{$page->page_id}") ?>"><?php echo $page->title ?></a></li>
+                <?php endforeach ?>
+            </ul>
+            <?php endif ?>
+        </div>
         <div class="footer row">
             <div class="col-md-12">
                 Copyright © <?php echo date("Y") ?> <?php echo $this->settings_model->get('title') ?>

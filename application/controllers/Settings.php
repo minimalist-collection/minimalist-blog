@@ -42,5 +42,4 @@ class Settings extends CI_Controller {
         $settings = $this->settings_model->get_settings();
         $this->load->view('settings/update', array('settings' => $settings));
     }
-
 }

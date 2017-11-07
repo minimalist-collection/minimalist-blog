@@ -1,3 +1,4 @@
+<?php $this->load->view('header.php') ?>
 <h1>Settings</h1>
 
 <?php if($this->input->method() == 'post' && $this->session->flashdata('error')): ?>
@@ -36,3 +37,5 @@
         <button type="button" class="link">Cancel</button>
     </a>
 <?php echo form_close() ?>
+
+<?php $this->load->view('footer.php') ?>

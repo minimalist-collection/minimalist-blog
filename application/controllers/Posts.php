@@ -10,6 +10,9 @@ class Posts extends CI_Controller {
         $this->load->model('comments_model');
         $this->load->library('form_validation');
         $this->load->library('recaptcha');
+        $this->load->helper('pagination');
+        $this->load->helper('html');
+        $this->load->helper('post');
     }
 
     public function create() 
@@ -144,10 +147,22 @@ class Posts extends CI_Controller {
         {
             redirect('auth/login');
         }
-        $this->load->helper('pagination');
         $posts = $this->posts_model->get_posts(true);
         $pagination = paginate($posts);
         $this->load->view('posts/all', array('posts' => $posts, 'pagination' => $pagination));
+    }
+
+    public function search()
+    {
+        if($this->input->method() == 'post')
+        {
+            $keywords = $this->input->post('search');
+            $posts = $this->posts_model->search($keywords);
+            $pagination = paginate($posts);
+            $this->load->view('posts/search', compact('posts', 'keywords', 'pagination'));
+            return;
+        }
+        $this->archives();
     }
 
     public function archives()

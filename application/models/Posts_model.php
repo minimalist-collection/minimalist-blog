@@ -36,6 +36,23 @@ class Posts_model extends CI_Model {
         }
     }
 
+    public function search($keywords)
+    {
+        $this->db->select('posts.*, GROUP_CONCAT(tags.label) AS tags');
+        $this->db->group_by('post_id');
+        $this->db->join('tags', 'posts.post_id = tags.post_id', 'left');
+        $this->db->where('posts.publish_date IS NOT NULL');
+        $this->db->where("MATCH (posts.content) AGAINST ('+" . $keywords . "' IN BOOLEAN MODE)", null, false);
+        $this->db->order_by('publish_date', 'DESC');
+        $this->db->order_by('post_id', 'DESC');
+        $results = $this->db->get('posts')->result();
+        foreach ($results as $key => $result) {
+            $author = $this->ion_auth->user($result->author)->row();
+            $results[$key]->author = $author;
+        }
+        return $results;
+    }
+
     public function delete($post_id)
     {
         $this->db->where('post_id', $post_id);
