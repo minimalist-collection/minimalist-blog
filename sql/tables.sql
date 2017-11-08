@@ -50,16 +50,20 @@ INSERT INTO `groups` (`id`, `name`, `description`) VALUES
      (1,'admin','Administrator'),
      (2,'members','General User');
 
-CREATE TABLE IF NOT EXISTS `posts` (
-  `post_id` int(11) NOT NULL AUTO_INCREMENT,
-  `title` varchar(255) NOT NULL,
-  `author` int(11) unsigned NOT NULL,
-  `content` text NOT NULL,
-  `publish_date` datetime DEFAULT NULL,
+CREATE TABLE `posts` (
+  `post_id` INT(11) NOT NULL AUTO_INCREMENT,
+  `title` VARCHAR(255) NOT NULL,
+  `author` INT(11) UNSIGNED NOT NULL,
+  `content` TEXT NOT NULL,
+  `publish_date` DATETIME NULL DEFAULT NULL,
+  `create_date` DATETIME NOT NULL DEFAULT CURRENT_TIMESTAMP,
   PRIMARY KEY (`post_id`),
-  KEY `author` (`author`),
+  INDEX `author` (`author`),
+  FULLTEXT INDEX `content` (`content`),
   CONSTRAINT `FK__users` FOREIGN KEY (`author`) REFERENCES `users` (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=308 DEFAULT CHARSET=utf8;
+)
+COLLATE='utf8_general_ci'
+ENGINE=InnoDB;
 
 CREATE TABLE IF NOT EXISTS `comments` (
   `comment_id` int(11) NOT NULL AUTO_INCREMENT,
@@ -87,3 +91,13 @@ CREATE TABLE IF NOT EXISTS `tags` (
   KEY `pid` (`post_id`)
 ) ENGINE=MyISAM AUTO_INCREMENT=27 DEFAULT CHARSET=utf8;
 
+CREATE TABLE `pages` (
+  `page_id` INT(11) NOT NULL AUTO_INCREMENT,
+  `title` VARCHAR(50) NOT NULL,
+  `content` TEXT NOT NULL,
+  `sidebar` ENUM('Y','N') NOT NULL DEFAULT 'Y',
+  `sidebar_place` INT(11) NOT NULL DEFAULT '1',
+  PRIMARY KEY (`page_id`)
+)
+COLLATE='utf8_general_ci'
+ENGINE=MyISAM;

@@ -21,14 +21,15 @@ class Settings extends CI_Controller {
         {
             $this->form_validation->set_rules('title', 'Title', 'required|max_length[50]');
             $this->form_validation->set_rules('description', 'Description', 'required');
-            $this->form_validation->set_rules('comments', 'Comments', 'required');
 
             if($this->form_validation->run() !== FALSE)
             {
+                $comments = $this->input->post('comments') == 'on' ? 'Y' : 'N';
+                
                 $data = array(
                     'title'         => $this->input->post('title'),
                     'description'   => $this->input->post('description'),
-                    'comments'      => $this->input->post('comments'),
+                    'comments'      => $comments,
                 );
                 $this->settings_model->update($data);
                 $this->session->set_flashdata('success', 'Settings have been updated');

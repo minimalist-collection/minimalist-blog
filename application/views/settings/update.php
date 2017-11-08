@@ -24,12 +24,7 @@
 
     <div class="<?php if(form_error('content')) echo 'has-error' ?>">
         <label>Comments</label><br>
-        <label>
-            <input type="radio" name="comments" value="Y" <?php echo $settings->comments == 'Y' ? 'checked' : '' ?>> Enabled
-        </label>
-        <label>
-            <input type="radio" name="comments" value="N" <?php echo $settings->comments == 'N' ? 'checked' : '' ?>> Disabled
-        </label>
+        <input type="checkbox" name="comments" data-toggle="switch" class="bootstrapswitch" <?php echo $settings->comments == 'Y' ? 'checked' : '' ?>>
         <?php echo form_error('content'); ?>
     </div>
 

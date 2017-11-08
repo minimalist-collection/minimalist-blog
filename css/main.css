@@ -16,6 +16,10 @@ body {
     right: 0;
 }
 
+.container.install {
+  width: 800px;
+}
+
 .main {
   padding: 48px;
   min-height: calc(100vh - 60px);
@@ -41,6 +45,7 @@ body {
 
 h1 {
   font-family: 'Hind', Helvetica, sans-serif;
+    margin-bottom: 48px;
 }
 
 h2 {
@@ -50,6 +55,10 @@ h2 {
 }
 
 /*SIDEBAR*/
+
+form > div {
+  margin-bottom: 24px;
+}
 
 ul.navigation {
   margin-top: 12px;
@@ -72,9 +81,6 @@ ul.navigation li a:hover, ul.navigation li a:focus {
 
 /*FORMS*/
 
-label {
-    margin-top: 24px;
-}
 
 form div:first-child label {
   margin-top: inherit;
@@ -85,18 +91,16 @@ form div:first-child label {
     margin-top: 6px;
 }
 
-.btn {
+/*.btn {
     margin-top: 24px;
-}
+}*/
 
 .form-inline .btn {
   margin-top: inherit;
 }
 
-.alert {
-    background-color: rgba(248, 69, 69, 0.2);
-    color: #cc0000;
-    margin-top: 25px;
+.switch {
+    font-size: 10px;
 }
 
 /*TINYMCE*/
@@ -156,6 +160,10 @@ h2.title a {
     margin-bottom: 96px;
 }
 
+h1.blog-title {
+  margin-bottom: inherit;
+}
+
 .blog-title a {
     font-family: 'Hind', Helvetica, sans-serif;
     color: #FFF;
@@ -186,6 +194,7 @@ h2.title a {
 
 .single-post .content {
   margin-top: 48px;
+  margin-bottom: 96px;
 }
 
 /*COMMENTS*/
@@ -196,6 +205,22 @@ h2.title a {
   font-size: 0.8em;
 }
 
+/*POSTS*/
+
+.new-button {
+    margin: 24px 0;
+}
+
+th.actions {
+    width: 200px;
+}
+
+th.published {
+    width: 180px;
+}
+
+/*HEADER*/
+
 /*FOOTER*/
 
 footer.col-md-9 {
@@ -203,6 +228,10 @@ footer.col-md-9 {
   font-size: 0.9em;
   text-align: center;
     padding-bottom: 24px;
+}
+
+footer a:first-child {
+  color: inherit;
 }
 
 /*RESPONSIVE*/

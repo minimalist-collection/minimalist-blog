@@ -21,17 +21,19 @@ class Pages extends CI_Controller {
         {
             $this->form_validation->set_rules('title', 'Title', 'required');
             $this->form_validation->set_rules('content', 'Content', 'required');
-            $this->form_validation->set_rules('sidebar', 'Sidebar link option', 'required');
 
             if($this->form_validation->run() !== FALSE)
             {
+                $sidebar = $this->input->post('sidebar') == 'on' ? 'Y' : 'N';
+
                 $data = array(
                     'title'     => $this->input->post('title'),
                     'content'   => $this->input->post('content'),
-                    'sidebar'    => $this->input->post('sidebar'),
+                    'sidebar'    => $sidebar,
                     'sidebar_place' => count($this->pages_model->get_sidebar_pages()) + 1
                 );
-                $this->pages_model->create($data);
+                $page_id = $this->pages_model->create($data);
+                redirect("pages/view/$page_id");
             }
             else
             {
@@ -58,17 +60,19 @@ class Pages extends CI_Controller {
         {
             $this->form_validation->set_rules('title', 'Title', 'required');
             $this->form_validation->set_rules('content', 'Content', 'required');
-            $this->form_validation->set_rules('sidebar', 'Sidebar link option', 'required');
 
             if($this->form_validation->run() !== FALSE)
             {
+                $sidebar = $this->input->post('sidebar') == 'on' ? 'Y' : 'N';
+
                 $data = array(
                     'title'     => $this->input->post('title'),
                     'content'   => $this->input->post('content'),
-                    'sidebar'    => $this->input->post('sidebar'),
+                    'sidebar'    => $sidebar,
                     'sidebar_place' => $this->input->post('sidebar_place')
                 );
                 $this->pages_model->set_page($page_id, $data);
+                redirect("pages/view/$page_id");
             }
             else
             {

@@ -1,20 +1,25 @@
 <?php $this->load->view('header.php') ?>
 
 <h1>Login</h1>
+<div class="row">
+    <div class="col-md-3">
+        <div id="infoMessage"><?php echo $message ?></div>
+        <form action="<?php echo base_url('auth/login') ?>" method="post" accept-charset="utf-8">
+        <label for="identity">Email</label>
+        <input type="text" class="form-control" name="identity" value="" id="identity">
+        <label for="password">Password</label>
+        <input type="password" class="form-control" name="password" value="" id="password">
 
-<div id="infoMessage"><?php echo $message ?></div>
+        <br>
+        <label class="checkbox checked" for="remember">
+            <span class="icons"><span class="first-icon"></span><span class="second-icon fa fa-check"></span></span><input type="checkbox" value="" id="remember" name="remember" data-toggle="checkbox">
+            Remember Me
+        </label>
 
-<?php echo form_open("auth/login") ?>
-<?php echo lang('login_identity_label', 'identity') ?>
-<?php echo form_input($identity) ?>
-<?php echo lang('login_password_label', 'password') ?>
-<?php echo form_input($password) ?>
-<?php echo lang('login_remember_label', 'remember') ?>
-<?php echo form_checkbox('remember', '1', FALSE, 'id="remember"') ?>
-<br>
-<?php echo form_submit('submit', lang('login_submit_btn')) ?>
-<?php echo form_close() ?>
-
-<a href="forgot_password"><?php echo lang('login_forgot_password') ?></a>
-
+        <input type="submit" class="btn btn-primary btn-embossed" name="submit" value="Login">
+        </form>
+        <br>
+        <a href="forgot_password"><?php echo lang('login_forgot_password') ?></a>
+    </div>
+</div>
 <?php $this->load->view('footer.php') ?>

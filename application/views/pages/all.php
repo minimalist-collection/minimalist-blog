@@ -4,11 +4,11 @@
 
 <?php if($this->ion_auth->logged_in()): ?>
     <a href="<?php echo base_url("pages/create") ?>">
-        <button type="button">New Page</button>
+        <button type="button" class="btn btn-primary btn-embossed new-button">New Page</button>
     </a>
 <?php endif ?>
 
-<table>
+<table class="table">
     <thead>
         <tr>
             <th>Title</th>
@@ -20,11 +20,11 @@
         <?php foreach($pages as $page): ?>
             <tr>
                 <td><?php echo anchor( base_url("pages/view/{$page->page_id}"), $page->title) ?></td>
-                <td><?php echo $page->sidebar ?></td>
+                <td><?php echo $page->sidebar == 'Y' ? "Yes <span class='text-muted'>( " . $page->sidebar_place . " )</span>" : "No" ?></td>
                 <td>
-                    <form method="page" action="<?php echo base_url("pages/delete/{$page->page_id}") ?>" onsubmit="return confirm('Are you sure you want to delete this page?')">
-                        <a href="<?php echo base_url("pages/edit/{$page->page_id}") ?>"><button type="button" class="btn btn-default">Edit</button></a>
-                        <button>Delete</button>
+                    <form method="page" action="<?php echo base_url("pages/delete/{$page->page_id}") ?>">
+                        <a href="<?php echo base_url("pages/edit/{$page->page_id}") ?>"><button type="button" class="btn btn-primary">Edit</button></a>
+                        <button class="btn btn-danger" onclick="return confirm('Are you sure you want to delete this page?')">Delete</button>
                     </form>
                 </td>
             </tr>

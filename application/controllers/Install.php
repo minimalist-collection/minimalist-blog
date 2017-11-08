@@ -29,7 +29,7 @@ class Install extends CI_Controller {
                 $settings = array(
                     'setting_id' => 1,
                     'title' => $this->input->post('title'),
-                    'description' => $this->input->post('email'),
+                    'description' => $this->input->post('description'),
                     'comments' => 'Y'
                 );
                 $this->settings_model->install_settings($settings);

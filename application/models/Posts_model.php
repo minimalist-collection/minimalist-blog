@@ -15,6 +15,7 @@ class Posts_model extends CI_Model {
         $this->db->insert('posts', $data);
         $post_id = $this->db->insert_id();
         $this->set_tags($post_id, $tags);
+        return $post_id;
     }
 
     public function set_tags($post_id, $tags)

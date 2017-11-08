@@ -38,8 +38,9 @@
                 <?php endif ?>
 
                 <?php if($this->ion_auth->logged_in()): ?>
+                    <br>
                     <a href="<?php echo base_url("posts/create") ?>">
-                        <button type="button" class="btn btn-primary btn-embossed">New Post</button>
+                        <button type="button" class="btn btn-primary btn-embossed new-button">New Post</button>
                     </a>
                 <?php endif ?>
             </div>

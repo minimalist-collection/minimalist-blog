@@ -53,7 +53,8 @@ class Posts extends CI_Controller {
             if($this->form_validation->run() !== FALSE)
             {
                 // Create the post
-                $this->posts_model->create($data);
+                $post_id = $this->posts_model->create($data);
+                redirect( "posts/view/$post_id" );
             }
             else
             {

@@ -22,21 +22,16 @@
         <?php echo form_error('content'); ?>
     </div>
 
-    <div class="<?php if(form_error('content')) echo 'has-error' ?>">
+    <div class="<?php if(form_error('sidebar')) echo 'has-error' ?>">
         <label>Sidebar Link</label><br>
-        <label>
-            <input type="radio" name="sidebar" value="Y" <?php echo $page->sidebar == 'Y' ? 'checked' : '' ?>> Yes
-        </label>
-        <label>
-            <input type="radio" name="sidebar" value="N" <?php echo $page->sidebar == 'N' ? 'checked' : '' ?>> No
-        </label>
-        <?php echo form_error('content'); ?>
+                <input type="checkbox" name="sidebar" data-toggle="switch" class="bootstrapswitch" <?php echo $page->sidebar == 'Y' ? 'checked' : '' ?>>
+        <?php echo form_error('sidebar'); ?>
     </div>
 
     <?php if ($num_pages = count($this->pages_model->get_sidebar_pages())): ?>
         <div class="<?php if(form_error('sidebar_place')) echo 'has-error' ?>">
             <label>Sidebar Position</label><br>
-            <select name="sidebar_place">
+            <select name="sidebar_place" class="form-control">
                 <?php for($i = 1; $i < $num_pages + 1; $i++): ?>
                     <option value="<?php echo $i ?>" <?php echo ( $page->sidebar_place ) == $i  ? 'selected' : '' ?>><?php echo $i ?></option>
                 <?php endfor ?>

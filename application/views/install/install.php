@@ -2,17 +2,19 @@
 <html>
 <head>
     <title>Install Blog</title>
-<!--     <link rel="stylesheet" type="text/css" href="<?php echo base_url('css/bootstrap-grid.css') ?>">
-    <link rel="stylesheet" type="text/css" href="<?php echo base_url('css/style.css') ?>">
-    <link rel="stylesheet" type="text/css" href="<?php echo base_url('css/blog.css') ?>"> -->
+    <!-- Loading Bootstrap -->
+    <link href="<?php echo base_url('bootstrap/css/bootstrap.css') ?>" rel="stylesheet">
+
+    <!-- Loading Font Awesome Icons -->
+    <link href="<?php echo base_url('css/font-awesome.min.css') ?>" rel="stylesheet">
+
+    <!-- Loading Drunken Parrot UI -->
+    <link href="<?php echo base_url('css/drunken-parrot.css') ?>" rel="stylesheet">
+    <link href="<?php echo base_url('css/demo.css') ?>" rel="stylesheet">
+    <link href="<?php echo base_url('css/main.css') ?>" rel="stylesheet">
 </head>
 <body>
-    <div class="container">
-        <div class="header row">
-            <div class="col-md-12">
-                <div class="site-title">Install Blog</div>
-            </div>
-        </div>
+    <div class="container install">
         <div class="main row">
             <div class="col-md-12">
 
@@ -63,17 +65,17 @@
 
                     <div class="<?php if(form_error('password')) echo 'has-error' ?>">
                         <label>Password</label><br>
-                        <input type="password" name="password" value="<?php echo set_value('password') ?>">
+                        <input type="password" class="form-control" name="password" value="<?php echo set_value('password') ?>">
                         <?php echo form_error('password') ?>
                     </div>
 
                     <div class="<?php if(form_error('password2')) echo 'has-error' ?>">
                         <label>Password (Confirm)</label><br>
-                        <input type="password" name="password2" value="<?php echo set_value('password2') ?>">
+                        <input type="password" class="form-control" name="password2" value="<?php echo set_value('password2') ?>">
                         <?php echo form_error('password2') ?>
                     </div>
 
-                    <input type="submit" class="btn btn-primary" value="Save">
+                    <input type="submit" class="btn btn-block btn-primary btn-kr btn-embossed" value="Start!">
                 <?php echo form_close() ?>
 
             </div>

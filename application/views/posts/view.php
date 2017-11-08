@@ -2,7 +2,16 @@
 
 <?php if( $post ): ?>
     <div class="single-post">
-        <h1><?php echo $post->title ?></h1>
+        <h1>
+            <?php echo $post->title ?>
+            <?php if($this->ion_auth->logged_in()): ?>
+                <a href="<?php echo base_url("posts/edit/{$post->post_id}") ?>">
+                    <button type="button" class="btn btn-primary pull-right">Edit</button>
+                </a>
+            <?php endif ?>
+        </h1>
+
+
         <div class="info">Posted <?php echo date('j M Y', strtotime($post->publish_date)) ?> by <?php echo $post->author->first_name . ' ' . $post->author->last_name ?></div>
         <?php if($tags = array_filter(explode(',', $post->tags))): ?>
             <div class="tags">
@@ -17,11 +26,6 @@
             <?php echo $post->content ?>
         </div>
 
-        <?php if($this->ion_auth->logged_in()): ?>
-            <a href="<?php echo base_url("posts/edit/{$post->post_id}") ?>">
-                <button type="button" class="btn btn-default">Edit</button>
-            </a>
-        <?php endif ?>
 
 
         <?php if($this->settings_model->get('comments') == 'Y'): ?>

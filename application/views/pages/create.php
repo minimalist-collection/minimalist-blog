@@ -25,12 +25,7 @@
 
     <div class="<?php if(form_error('sidebar')) echo 'has-error' ?>">
         <label>Sidebar Link</label><br>
-        <label>
-            <input type="radio" name="sidebar" value="Y" checked> Yes
-        </label>
-        <label>
-            <input type="radio" name="sidebar" value="N"> No
-        </label>
+                <input type="checkbox" name="sidebar" data-toggle="switch" class="bootstrapswitch" checked>
         <?php echo form_error('sidebar'); ?>
     </div>
 
