@@ -1,5 +1,4 @@
 <?php $this->load->view('header.php') ?>
-
 <?php foreach($posts as $post): ?>
 <div class="post">
     <h2 class="title"><?php echo anchor( base_url("posts/view/{$post->post_id}"), $post->title) ?></h2>
@@ -9,13 +8,11 @@
         <div class="tags">
             under 
             <?php foreach($tags as $tag): ?>
-                <?php echo anchor( base_url("posts/tagged/$tag"), str_replace('-', ' ', $tag), array('class' => 'label label-info')) ?>
+                <?php echo anchor( base_url("posts/tagged/$tag"), str_replace('-', ' ', $tag), array('class' => 'label label-info', 'style' => 'background: ' . tag_color($tag) )) ?>
             <?php endforeach ?>
         </div>
     <?php endif ?>
     <div class="content"><?php echo preview($post->content, 1200) ?></div>
-
-    <!-- <?php echo anchor( base_url("posts/view/{$post->post_id}"), 'Read More') ?> -->
 </div>
 <?php endforeach ?>
 
