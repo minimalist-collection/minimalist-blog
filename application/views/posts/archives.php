@@ -2,7 +2,7 @@
 
 <h1>Archives</h1>
 
-<form class="form-inline" method="post" action="<?php echo base_url('posts/search') ?>">
+<form class="form-inline" action="<?php echo base_url('posts/search') ?>">
     <input type="text" class="form-control" name="search">
     <input type="submit" class="btn btn-primary" value="Search">
 </form>

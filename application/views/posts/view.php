@@ -1,6 +1,6 @@
 <?php $this->load->view('header.php') ?>
 
-<?php if( $post ): ?>
+<?php if($post): ?>
     <div class="single-post">
         <h1>
             <?php echo $post->title ?>
@@ -17,7 +17,7 @@
             <div class="tags">
                 under 
                 <?php foreach($tags as $tag): ?>
-                    <?php echo anchor( base_url("posts/tagged/$tag"), str_replace('-', ' ', $tag), array('class' => 'label label-info')) ?>
+                    <?php echo anchor( base_url("posts/tagged/$tag"), str_replace('-', ' ', $tag), array('class' => 'label label-info', 'style' => 'background: ' . tag_color($tag) )) ?>
                 <?php endforeach ?>
             </div>
         <?php endif ?>

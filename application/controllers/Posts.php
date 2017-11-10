@@ -155,9 +155,8 @@ class Posts extends CI_Controller {
 
     public function search()
     {
-        if($this->input->method() == 'post')
+        if($keywords = $this->input->get('search'))
         {
-            $keywords = $this->input->post('search');
             $posts = $this->posts_model->search($keywords);
             $pagination = paginate($posts);
             $this->load->view('posts/search', compact('posts', 'keywords', 'pagination'));

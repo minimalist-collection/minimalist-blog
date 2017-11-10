@@ -197,6 +197,10 @@ h1.blog-title {
   margin-bottom: 96px;
 }
 
+.single-post h1 {
+  margin-bottom: 6px;
+}
+
 /*COMMENTS*/
 
 .comment .date {
@@ -206,6 +210,15 @@ h1.blog-title {
 }
 
 /*POSTS*/
+
+.pager {
+  text-align: left;
+}
+
+.pager li {
+    display: inline;
+    text-align: center;
+}
 
 .new-button {
     margin: 24px 0;
@@ -217,6 +230,21 @@ th.actions {
 
 th.published {
     width: 180px;
+}
+
+.search-post h3 a {
+  color: #364347;
+}
+
+.search-post {
+    margin-top: 48px;
+    margin-bottom: 0;
+}
+
+a.read-more {
+  display: inline-block;
+  margin-top: 12px;
+  margin-bottom: 24px;
 }
 
 /*HEADER*/

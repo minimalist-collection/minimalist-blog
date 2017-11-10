@@ -16,6 +16,6 @@
 </div>
 <?php endforeach ?>
 
-<?php $this->load->view('pagination') ?>
+<?php $this->load->view('pagination-home') ?>
 
 <?php $this->load->view('footer.php') ?>
