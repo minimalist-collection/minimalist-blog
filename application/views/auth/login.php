@@ -3,7 +3,9 @@
 <h1>Login</h1>
 <div class="row">
     <div class="col-md-3">
-        <div id="infoMessage"><?php echo $message ?></div>
+
+        <?php echo $message ?>
+
         <form action="<?php echo base_url('auth/login') ?>" method="post" accept-charset="utf-8">
         <label for="identity">Email</label>
         <input type="text" class="form-control" name="identity" value="" id="identity">

@@ -1,15 +1,24 @@
-<h1><?php echo lang('forgot_password_heading');?></h1>
-<p><?php echo sprintf(lang('forgot_password_subheading'), $identity_label);?></p>
 
-<div id="infoMessage"><?php echo $message;?></div>
 
-<?php echo form_open("auth/forgot_password");?>
+<?php $this->load->view('header.php') ?>
 
-      <p>
-      	<label for="identity"><?php echo (($type=='email') ? sprintf(lang('forgot_password_email_label'), $identity_label) : sprintf(lang('forgot_password_identity_label'), $identity_label));?></label> <br />
-      	<?php echo form_input($identity);?>
-      </p>
+<h1>Forgot Password</h1>
+<div class="row">
+    <div class="col-md-3">
 
-      <p><?php echo form_submit('submit', lang('forgot_password_submit_btn'));?></p>
+        <p><?php echo sprintf(lang('forgot_password_subheading'), $identity_label);?></p>
 
-<?php echo form_close();?>
+        <?php echo $message ?>
+
+        <form action="<?php echo base_url('auth/forgot_password') ?>" method="post" accept-charset="utf-8">
+        <label for="identity">Email</label>
+        <input type="text" class="form-control" name="identity" value="" id="identity">
+        <br>
+
+        <input type="submit" class="btn btn-primary btn-embossed" name="submit" value="Send">
+        </form>
+        <br>
+        <a href="forgot_password"><?php echo lang('login_forgot_password') ?></a>
+    </div>
+</div>
+<?php $this->load->view('footer.php') ?>
