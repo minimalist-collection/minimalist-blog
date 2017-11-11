@@ -21,7 +21,7 @@
                 <h1>Welcome!</h1>
 
                 <?php if($this->input->method() == 'post' && $this->session->flashdata('error')): ?>
-                    <div class="alert alert-error" role="alert">
+                    <div class="alert alert-danger" role="alert">
                         <?php echo $this->session->flashdata('error') ?>
                     </div>
                 <?php endif ?>

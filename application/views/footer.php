@@ -5,7 +5,7 @@
         </div>
         <div class="row">
             
-                <footer class="col-md-9 col-md-offset-3">
+                <footer class="col-lg-9 col-lg-offset-3">
                         Copyright © <?php echo date("Y") ?> <?php echo $this->settings_model->get('title') ?>
                             &middot; <a href="<?php echo base_url("posts/archives") ?>">Archives</a> 
 

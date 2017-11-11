@@ -13,6 +13,7 @@
         </div>
     <?php endif ?>
     <div class="content"><?php echo preview($post->content, 1200) ?></div>
+    <a class="visible-xs" href="<?php echo base_url("posts/view/{$post->post_id}") ?>">View Post</a>
 </div>
 <?php endforeach ?>
 
