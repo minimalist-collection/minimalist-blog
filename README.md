@@ -1,7 +1,7 @@
 # PHP Blog
 A blog in PHP. Uses CodeIgniter for the PHP Framework and Hoarrd's Drunken Parrot stylesheet
 
-![Home page](https://lh3.googleusercontent.com/sJ5sGcx2r_Lgr8r-kA8IB-QgujbkdnfqzVB0_XeQvfqpFygQFuISLwZdlz0JJTusm067nHmO4SszCD6SVZU8M3g0kp40Faf3GHvsllIh=w1902-h958-rw-no)
+![Home page](http://tomual.com/images/blog/ss%20(2017-11-10%20at%2006.32.13).png)
 
 ## Features
 
